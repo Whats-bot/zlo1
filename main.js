@@ -283,10 +283,10 @@ async function connectionUpdate(update) {
   }
   if (global.db.data == null) loadDatabase();
   if (update.qr != 0 && update.qr != undefined) {
-    console.log(chalk.yellow('[ ℹ️ ] Escanea el código QR o introduce el código de emparejamiento en WhatsApp.'));
+    console.log(chalk.yellow('[ ℹ️ ] Отсканируйте QR-код для запуска бота в ватсап.'));
   }
   if (connection == 'open') {
-    console.log(chalk.yellow('[ ℹ️ ] Conectado correctamente.'));
+    console.log(chalk.yellow('[ ℹ️ ] Соединение корректно.'));
   }
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
 if (connection === 'close') {
@@ -351,14 +351,14 @@ global.reloadHandler = async function(restatConn) {
     conn.ev.off('creds.update', conn.credsUpdate);
   }
 
-  conn.welcome = '👋 ¡Bienvenido/a!\n@user';
-  conn.bye = '👋 ¡Hasta luego!\n@user';
-  conn.spromote = '*[ ℹ️ ] @user Fue promovido a administrador.*';
-  conn.sdemote = '*[ ℹ️ ] @user Fue degradado de administrador.*';
-  conn.sDesc = '*[ ℹ️ ] La descripción del grupo ha sido modificada.*';
-  conn.sSubject = '*[ ℹ️ ] El nombre del grupo ha sido modificado.*';
-  conn.sIcon = '*[ ℹ️ ] Se ha cambiado la foto de perfil del grupo.*';
-  conn.sRevoke = '*[ ℹ️ ] El enlace de invitación al grupo ha sido restablecido.*';
+  conn.welcome = '👋 ¡Добро пожаловать в группу!\n@user';
+  conn.bye = '👋 ¡Нас покинул участник!\n@user';
+  conn.spromote = '*[ ℹ️ ] @user Назначен администратором группы)Давайте подумаем Радоваться или плакать.*';
+  conn.sdemote = '*[ ℹ️ ] @user Пнули с админа группы)Давайте подумаем Радоваться или плакать.*';
+  conn.sDesc = '*[ ℹ️ ] Описание группы изменено.*';
+  conn.sSubject = '*[ ℹ️ ] Номер группы изменен.*';
+  conn.sIcon = '*[ ℹ️ ] Изменена аватарка группы.*';
+  conn.sRevoke = '*[ ℹ️ ] Настройки группы изменены.*';
 
   conn.handler = handler.handler.bind(global.conn);
   conn.participantsUpdate = handler.participantsUpdate.bind(global.conn);

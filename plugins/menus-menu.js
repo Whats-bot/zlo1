@@ -21,26 +21,26 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
     const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
     const doc = ['pdf', 'zip', 'vnd.openxmlformats-officedocument.presentationml.presentation', 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'vnd.openxmlformats-officedocument.wordprocessingml.document'];
     const document = doc[Math.floor(Math.random() * doc.length)];
-    const str = `𝙏𝙃𝙀 𝙈𝙔𝙎𝙏𝙄𝘾 - 𝘽𝙊𝙏
+    const str = `ZloiBoT
 
- ▢ *Hola,* ${taguser}
+ ▢ *Привет,* ${taguser}
 
- _*< TUS ESTADÍSTICAS />*_
+ _*< Информация о пользователе />*_
 
- ▢ *Nivel:* ${level}
- ▢ *Experiencia:* ${exp}
- ▢ *Rango:* ${role}
- ▢ *Diamantes:* ${limit}
- ▢ *MysticCoins:* ${money}
- ▢ *Tokens:* ${joincount}
- ▢ *Premium:* ${user.premiumTime > 0 ? '✅' : (isPrems ? '✅' : '❌') || ''}
+ ▢ *Уровень:* ${level}
+ ▢ *Количество опта:* ${exp}
+ ▢ *Ранг:* ${role}
+ ▢ *Бриллиантов:* ${limit}
+ ▢ *БотКоинов:* ${money}
+ ▢ *Токенов:* ${joincount}
+ ▢ *Премиум-статус:* ${user.premiumTime > 0 ? '✅' : (isPrems ? '✅' : '❌') || ''}
  ${readMore}
 
-  _*< LISTA DE MENUS />*_
+  _*< Список дополнительных меню />*_
   
-  ▢ _${usedPrefix}menuaudios_
-  ▢ _${usedPrefix}menuanimes_
-  ▢ _${usedPrefix}labiblia_ (🔞)
+  ▢ _${usedPrefix}аудио_
+  ▢ _${usedPrefix}аниме_
+  ▢ _${usedPrefix}18+_ (🔞)
 
  
  _*< SOBRE EL BOT />*_

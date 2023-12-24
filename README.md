@@ -2,7 +2,7 @@
 
 
 
-### `▢ ACTIVAR EN TERMUX` 
+### `▢ Установка в термукс` 
 - ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
 ```bash
 cd && termux-setup-storage
@@ -36,7 +36,7 @@ npm update
 npm start
 ```
 
-### `▢ ACTIVAR EN CASO DE DETENERSE EN TERMUX`
+### `▢ Последующий запуск в термукс`
 ```bash
 ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
 > cd 
@@ -44,8 +44,8 @@ ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
 > npm start
 ```
 
-### `▢ OBTENER OTRO CODIGO QR EN TERMUX`
-- DETEN EL BOT, HAZ CLICK EN EL SIMBOLO CTRL DE TERMUX MAS Z EN SU TECLADO MOVIL HASTA QUE SALGA ALGO EN VERDE SIMILAR A Mystic-termux $  
+### `▢ Сбросить старую сессию и получить новый код`
+
 ```bash
 ESCRIBE LOS SIGUIENTES COMANDOS UNO POR UNO:
 > cd 

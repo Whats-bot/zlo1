@@ -1477,10 +1477,10 @@ export async function groupsUpdate(groupsUpdate) {
     if (groupUpdate.subjectTime) continue;
     const chats = global.db.data.chats[id]; let text = '';
     if (!chats?.detect) continue;
-    if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '```Description has been changed to```\n@desc').replace('@desc', groupUpdate.desc);
+    if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '```Описание изменено на```\n@desc').replace('@desc', groupUpdate.desc);
     if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '```Subject has been changed to```\n@subject').replace('@subject', groupUpdate.subject);
-    if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '```Icon has been changed to```').replace('@icon', groupUpdate.icon);
-    if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '```Group link has been changed to```\n@revoke').replace('@revoke', groupUpdate.revoke);
+    if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '```Аватарка группы изменена на```').replace('@icon', groupUpdate.icon);
+    if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '```Ссылка группы изменена на```\n@revoke').replace('@revoke', groupUpdate.revoke);
     if (!text) continue;
     await mconn.conn.sendMessage(id, {text, mentions: mconn.conn.parseMention(text)});
   }
@@ -1515,12 +1515,12 @@ let date = d.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'nu
 	if (!chat?.antidelete) return 
         if (!msg) return 
 	if (!msg?.isGroup) return 
-	const antideleteMessage = `_*< ANTI-DELETE />*_\n
- ▢ *Usuario:* @${participant.split`@`[0]}
- ▢ *Hora:* ${time}
- ▢ *Fecha:* ${date}\n
- ▢ *Enviando el mensaje eliminado...*\n
- *[ ℹ️ ] Para desactivar la función* _antidelete_*, envia el siguiente comando:* _/disable antidelete_`.trim();
+	const antideleteMessage = `_*< Анти-удаление />*_\n
+ ▢ *Пользователь:* @${participant.split`@`[0]}
+ ▢ *Время:* ${time}
+ ▢ *Дата:* ${date}\n
+ ▢ *Напоминаю что вы удалили сообщение...*\n
+ *[ ℹ️ ] Не обращай внимания,я просто переживаю_`.trim();
         await mconn.conn.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participant]}, {quoted: msg})
         mconn.conn.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
     } catch (e) {
@@ -1530,15 +1530,15 @@ let date = d.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'nu
 
 global.dfail = (type, m, conn) => {
   const msg = {
-    rowner: '*[ ℹ️ ] Este comando solo puede ser utilizado por el propietario del bot.*',
-    owner: '*[ ℹ️ ] Este comando solo puede ser utilizado por el propietario del bot.*',
-    mods: '*[ ℹ️ ] Este comando solo puede ser utilizado por moderadores y el propietario del bot.*',
-    premium: '*[ ℹ️ ] Este comando solo puede ser utilizado por usurios premium y el propietario del bot.*',
-    group: '*[ ℹ️ ] Este comando solo puede ser utilizado en grupos.*',
-    private: '*[ ℹ️ ] Este comando solo puede ser utilizado en el chat privado del bot.*',
-    admin: '*[ ℹ️ ] Este comando solo puede ser usado por administradores del grupo.*',
-    botAdmin: '*[ ℹ️ ] Para utilizar este comando es necesario que el bot sea administrador del grupo.*',
-    unreg: '*[ ℹ️ ] Para utilizar este comando debes estar registrado.*\n\n*[ 💡 ] Utiliza el comando:* _/verificar nombre.edad_ *para registrarte.*',
+    rowner: '*[ ℹ️ ] Эта команда может использоваться только владельцем бота.*',
+    owner: '*[ ℹ️ ] Эта команда может использоваться только владельцем бота.*',
+    mods: '*[ ℹ️ ] Эта команда может использоваться только модераторами и владельцем бота.*',
+    premium: '*[ ℹ️ ] Эта команда может использоваться только пользователями премиум-класса и владельцем бота.*',
+    group: '*[ ℹ️ ] Эту команду можно использовать только в группах.*',
+    private: '*[ ℹ️ ] Эту команду можно использовать только в приватном чате бота.*',
+    admin: '*[ ℹ️ ] Эта команда может использоваться только администраторами группы.*',
+    botAdmin: '*[ ℹ️ ] Чтобы использовать эту команду, необходимо, чтобы бот был администратором группы.*',
+    unreg: '*[ ℹ️ ] Чтобы использовать эту команду, вы должны быть зарегистрированы.*\n\n*[ 💡 ] Используйте команду:* _/verificar ник.возраст_ *чтобы зарегистрироваться.*',
     restrict: '*[ ℹ️ ] Este comando fue desactivado por el propietario del bot.*',
   }[type];
   const aa = {quoted: m, userJid: conn.user.jid};
